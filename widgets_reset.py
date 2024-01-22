@@ -1,9 +1,10 @@
 import os
 import customtkinter
-from ml_scripts.utils import get_file_path, TRAIN_METADATA_DIR, TRAIN_METADATA_FILENAME, resource_path, TRAIN_DIR
+from ml_scripts.utils import get_file_path, MODEL_SAVE_PATH, MODEL_SAVE_NAME, truncate_metadata, \
+    delete_train_dataset
 
 
-class ClearTrainDataWidgets:
+class ResetWidgets:
     def __init__(self, parent_frame):
         """
         Initialize the ClearTrainDataWidgets class.
@@ -38,24 +39,19 @@ class ClearTrainDataWidgets:
         """
         self.status_label.grid_forget()
 
-    def clear_training_data(self):
+    def reset_training(self):
         """
-        Clear training data by truncating train_metadata.csv and deleting audio files in the dataset/train folder.
+        Clear training data by:
+        - truncating train_metadata.csv
+        - deleting audio files in the dataset/train folder
+        - deleting saved model
         """
-        # clear the train_metadata.csv
-        metadata_file = get_file_path(TRAIN_METADATA_DIR, TRAIN_METADATA_FILENAME)
+        truncate_metadata()
+        delete_train_dataset()
 
-        if os.path.isfile(metadata_file):
-            with open(metadata_file, "r+") as file:
-                file.readline()
-                file.truncate(file.tell())
-
-        # delete audio files located in dataset/train
-        train_folder = resource_path(TRAIN_DIR)
-        try:
-            for filename in os.listdir(train_folder):
-                os.remove(f"{train_folder}/{filename}")
-        except FileNotFoundError:
-            pass
+        saved_model = get_file_path(MODEL_SAVE_PATH, MODEL_SAVE_NAME)
+        if os.path.isfile(saved_model):
+            os.remove(saved_model)
 
         self.status_label.grid(row=0, column=0, padx=10, pady=(20, 0), sticky="w")
+

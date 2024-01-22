@@ -90,14 +90,14 @@ class TrainModelWidgets:
         """
         Show a progress bar animation while recording.
         """
-        self.progress_bar.place(x=60, y=180)
+        self.progress_bar.grid(row=3, column=0, padx=10, pady=(20, 0), columnspan=2, sticky="ew")
         self.progress_bar.start()
 
         while self.recording:
             time.sleep(0.02)
 
         self.progress_bar.stop()
-        self.progress_bar.place_forget()
+        self.progress_bar.grid_forget()
 
     def show_widgets(self):
         """
@@ -105,8 +105,8 @@ class TrainModelWidgets:
         """
         self.train_input_label.grid(row=0, column=0, padx=10, pady=(20, 0), sticky="w")
         self.train_input_entry.grid(row=1, column=0, padx=10, pady=(20, 0), columnspan=2, sticky="ew")
-        self.train_record_btn.grid(row=5, column=0, padx=10, pady=(200, 0), sticky="ew")
-        self.train_stop_btn.grid(row=5, column=1, padx=10, pady=(200, 0), sticky="ew")
+        self.train_record_btn.grid(row=4, column=0, padx=10, pady=(20, 0), sticky="ew")
+        self.train_stop_btn.grid(row=4, column=1, padx=10, pady=(20, 0), sticky="ew")
 
     def hide_widgets(self):
         """
@@ -116,7 +116,7 @@ class TrainModelWidgets:
         self.train_input_entry.grid_forget()
         self.train_record_btn.grid_forget()
         self.train_stop_btn.grid_forget()
-        self.progress_bar.place_forget()
+        self.progress_bar.grid_forget()
 
     def init_audio_stream(self):
         """

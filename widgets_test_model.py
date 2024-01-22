@@ -1,6 +1,6 @@
-import random
 import time
 import wave
+import pandas as pd
 from ml_scripts.inference import predict
 import customtkinter
 import threading
@@ -35,6 +35,10 @@ class TestModelWidgets:
                                                         text="Test the model",
                                                         font=("Times", 18, "bold"))
 
+        self.model_is_not_trained_label = customtkinter.CTkLabel(self.parent_frame,
+                                                       text="The model needs to be trained",
+                                                       font=("Times", 18, "bold"))
+
         self.test_record_btn = customtkinter.CTkButton(self.parent_frame,
                                                         text="Start recording",
                                                         fg_color="#006400",
@@ -48,10 +52,6 @@ class TestModelWidgets:
         self.progress_bar = customtkinter.CTkProgressBar(self.parent_frame,
                                                          width=200,
                                                          mode="indeterminate")
-
-        self.testing_progress_bar = customtkinter.CTkProgressBar(self.parent_frame,
-                                                                  width=200,
-                                                                  mode="determinate")
 
         self.prediction_label = customtkinter.CTkLabel(self.parent_frame,
                                                        text="",
@@ -67,8 +67,8 @@ class TestModelWidgets:
         Show the widgets for the "Test Model" button.
         """
         self.test_input_label.grid(row=0, column=0, padx=10, pady=(20, 0), sticky="w")
-        self.test_record_btn.grid(row=5, column=0, padx=10, pady=(200, 0), sticky="ew")
-        self.test_stop_btn.grid(row=5, column=1, padx=10, pady=(200, 0), sticky="ew")
+        self.test_record_btn.grid(row=2, column=0, padx=10, pady=(20, 0), sticky="ew")
+        self.test_stop_btn.grid(row=2, column=1, padx=10, pady=(20, 0), sticky="ew")
 
     def hide_widgets(self):
         """
@@ -77,16 +77,22 @@ class TestModelWidgets:
         self.test_record_btn.grid_forget()
         self.test_stop_btn.grid_forget()
         self.progress_bar.grid_forget()
-        self.testing_progress_bar.place_forget()
-        self.prediction_label.place_forget()
+        self.prediction_label.grid_forget()
         self.test_input_label.grid_forget()
+        self.model_is_not_trained_label.grid_forget()
 
     def start_recording(self):
         """
         Start the recording process.
         """
-        if not self.recording:
-            self.prediction_label.place_forget()
+
+        if not self.is_model_trained():
+            self.model_is_not_trained_label.grid(row=1, column=0, padx=10, pady=(20, 0), columnspan=2, sticky="ew")
+        else:
+            self.model_is_not_trained_label.grid_forget()
+
+        if not self.recording and self.is_model_trained():
+            self.prediction_label.grid_forget()
             self.recording = True
             threading.Thread(target=self.start_recording_animation).start()
             self.frames = []
@@ -100,7 +106,12 @@ class TestModelWidgets:
         """
         Stop the recording process.
         """
-        if self.recording:
+        if not self.is_model_trained():
+            self.model_is_not_trained_label.grid(row=1, column=0, padx=10, pady=(20, 0), columnspan=2, sticky="ew")
+        else:
+            self.model_is_not_trained_label.grid_forget()
+
+        if self.recording and self.is_model_trained():
             self.recording = False
             self.audio_thread.join()  # Wait for the recording thread to finish
             self.save_audio()
@@ -109,14 +120,14 @@ class TestModelWidgets:
         """
         Show a progress bar animation while recording.
         """
-        self.progress_bar.place(x=60, y=180)
+        self.progress_bar.grid(row=1, column=0, padx=10, pady=(20, 0), columnspan=2, sticky="ew")
         self.progress_bar.start()
 
         while self.recording:
             time.sleep(0.02)
 
         self.progress_bar.stop()
-        self.progress_bar.place_forget()
+        self.progress_bar.grid_forget()
 
     def init_audio_stream(self):
         """
@@ -162,4 +173,25 @@ class TestModelWidgets:
         self.test_model(file_path)
 
     def test_model(self, file_path):
-        threading.Thread(target=predict, args=(self.testing_progress_bar, self, file_path)).start()
+        """
+        Asynchronously tests the trained model on the specified audio file using a separate thread.
+
+        Parameters:
+        - self: Instance of the class containing this method.
+        - file_path (str): Path to the audio file to be tested.
+        """
+        threading.Thread(target=predict, args=(self, file_path)).start()
+
+    def is_model_trained(self):
+        """
+        Check if the model is trained. If the model is not trained, the "Test Model" function will not work.
+        :returns: True if there model is trained, False otherwise.
+        """
+        metadata_path = get_file_path(TRAIN_METADATA_DIR, TRAIN_METADATA_FILENAME)
+        try:
+            metadata = pd.read_csv(metadata_path)
+            unique_classes = metadata['class'].unique()
+            return len(unique_classes) > 0
+        except pd.errors.EmptyDataError:
+            return False
+

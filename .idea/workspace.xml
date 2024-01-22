@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6f04f1b1-a790-4dfd-9261-75d38edc346f" name="Changes" comment="" />
+    <list default="true" id="6f04f1b1-a790-4dfd-9261-75d38edc346f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/augmentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/augmentation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml_scripts/AppDataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml_scripts/AppDataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml_scripts/cnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml_scripts/cnn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml_scripts/inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml_scripts/inference.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml_scripts/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml_scripts/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml_scripts/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml_scripts/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/widgets_reset.py" beforeDir="false" afterPath="$PROJECT_DIR$/widgets_reset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/widgets_test_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/widgets_test_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/widgets_train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/widgets_train_model.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2bDdFBUEtbzv2cjymmrDLDD2R56" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -21,9 +43,44 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/software-development/python/0-fido/voice-recognition-gui-20012024/main.py",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\software-development\python\0-fido\voice-recognition-gui-20012024" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\software-development\python\0-fido\voice-recognition-gui-20012024" />
+      <recent name="D:\software-development\python\0-fido\voice-recognition-gui-20012024\Tkinter" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="voice-recognition-gui-20012024" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\avazo\AppData\Local\Programs\Python\Python311\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -32,7 +89,28 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705753478367</updated>
+      <workItem from="1705753479602" duration="92135000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/voice_recognition_gui_20012024$settings.coverage" NAME="settings Coverage Results" MODIFIED="1705771446573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/voice_recognition_gui_20012024$AppDataset.coverage" NAME="AppDataset Coverage Results" MODIFIED="1705826381884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ml_scripts" />
+    <SUITE FILE_PATH="coverage/voice_recognition_gui_20012024$train.coverage" NAME="train Coverage Results" MODIFIED="1705826630754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ml_scripts" />
+    <SUITE FILE_PATH="coverage/voice_recognition_gui_20012024$main.coverage" NAME="main Coverage Results" MODIFIED="1705889385399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
